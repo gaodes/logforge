@@ -1,6 +1,6 @@
 services:
   logforge-backend:
-    image: madanb13/logforge-backend:v2.0.0
+    image: madanb13/logforge-backend:latest
     container_name: ${LOGFORGE_BACKEND_CONTAINER_NAME:-logforge-backend}
     networks:
       - logforge-network 
@@ -12,7 +12,7 @@ services:
       - "com.centurylinklabs.watchtower.enable=${AUTO_UPDATE:-true}"
 
   logforge-frontend:
-    image: madanb13/logforge-frontend:v2.0.0
+    image: madanb13/logforge-frontend:latest
     container_name: ${LOGFORGE_FRONTEND_CONTAINER_NAME:-logforge-frontend}
     environment:
     - VITE_NOTIFIER_PORT=${NOTIFIER_WEB_PORT}
@@ -28,7 +28,7 @@ services:
       - "com.centurylinklabs.watchtower.enable=${AUTO_UPDATE:-true}"
 
   logforge-notifier:
-    image: madanb13/logforge-notifier:v2.0.0
+    image: madanb13/logforge-notifier:latest
     container_name: ${NOTIFIER_SERVICE_CONTAINER_NAME:-logforge-notifier}
     ports:
       - "127.0.0.1:${NOTIFIER_WEB_PORT:-8087}:8085"
@@ -52,7 +52,7 @@ services:
 
   alert-engine-backend:
     container_name: ${ALERT_ENGINE_BACKEND_CONTAINER_NAME:-logforge-alert-backend}
-    image: madanb13/logforge-alert-backend:v2.0.0
+    image: madanb13/logforge-alert-backend:latest
     volumes:
       - logforge_alert_engine_data:/app/data
     restart: unless-stopped
@@ -73,7 +73,7 @@ services:
 
   alert-engine-frontend:
     container_name: ${ALERT_ENGINE_FRONTEND_CONTAINER_NAME:-logforge-alert-frontend}
-    image: madanb13/logforge-alert-frontend:v2.0.0
+    image: madanb13/logforge-alert-frontend:latest
     ports:
       - "127.0.0.1:${ALERT_ENGINE_FRONTEND_PORT:-3033}:3033"
     environment:
