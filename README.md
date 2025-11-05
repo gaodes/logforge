@@ -13,7 +13,7 @@ Visibility that acts: alerts and safe auto-fix.
 
 ---
 
-## 🚀 Quick Start - v2.0.0
+## 🚀 Quick Start - v2.0.1
 
 ```bash
 git clone https://github.com/log-forge/logforge.git
