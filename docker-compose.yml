@@ -18,7 +18,7 @@ services:
     - VITE_NOTIFIER_PORT=${NOTIFIER_WEB_PORT}
     - VITE_ALERT_ENGINE_PORT=${ALERT_ENGINE_FRONTEND_PORT}
     ports:
-      - "127.0.0.1:${LOGFORGE_FRONTEND_PORT:-3008}:3000"
+      - "0.0.0.0:${LOGFORGE_FRONTEND_PORT:-3008}:3000"
     networks:
       - logforge-network
     restart: unless-stopped
